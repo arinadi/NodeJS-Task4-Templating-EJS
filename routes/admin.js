@@ -2,13 +2,13 @@ const express = require('express')
 
 const router = express.Router()
 
-const products = []
+const users = []
 
 // /admin/add-product => GET
-router.get('/add-product', (req, res, next) => {
-  res.render('add-product', {
-    pageTitle: 'Add Product',
-    path: '/admin/add-product',
+router.get('/add-user', (req, res, next) => {
+  res.render('add-user', {
+    pageTitle: 'Add User',
+    path: '/admin/add-user',
     formsCSS: true,
     productCSS: true,
     activeAddProduct: true
@@ -16,10 +16,10 @@ router.get('/add-product', (req, res, next) => {
 })
 
 // /admin/add-product => POST
-router.post('/add-product', (req, res, next) => {
-  products.push({ title: req.body.title })
+router.post('/add-user', (req, res, next) => {
+  users.push({ username: req.body.username })
   res.redirect('/')
 })
 
 exports.routes = router
-exports.products = products
+exports.data = users

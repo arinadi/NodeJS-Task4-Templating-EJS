@@ -5,12 +5,11 @@ const adminData = require('./admin')
 const router = express.Router()
 
 router.get('/', (req, res, next) => {
-  const products = adminData.products
-  res.render('shop', {
-    prods: products,
-    pageTitle: 'Shop',
+  const users = adminData.data
+  res.render('users', {
+    users: users,
+    pageTitle: 'users',
     path: '/',
-    hasProducts: products.length > 0,
     activeShop: true,
     productCSS: true
   })
